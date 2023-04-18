@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>like and dislike</title>
+</head>
+<body>
+    <img src="https://images.yourstory.com/cs/images/people/PrateekShukla-1597757316695.jfif">
+    <p>Like  <span id="likeSpan">  :-0</span></p>
+    <p>Dislike  <span id="dislikeSpan"> :-0</span></p>
+
+    <button>Like  </button>
+    <button>Dislike  </button>
+</body>
+</html>
+<script>
+
+let likeSpan=localStorage.getItem("likebtn")||[];
+document.getElementById("likeSpan").innerText=likeSpan;
+
+let dislikeSpan=localStorage.getItem("dislikebtn")||[];
+document.getElementById("dislikeSpan").innerText=dislikeSpan;
+
+document.querySelector("button").addEventListener("click",likefun);
+function likefun(){
+    likeSpan++;
+    // console.log("like")
+    document.getElementById("likeSpan").innerText=likeSpan;
+    localStorage.setItem("likebtn",likeSpan);
+}
+
+
+document.querySelector("button+button").addEventListener("click",dislikefun)
+function dislikefun(){
+    dislikeSpan++;
+    // console.log("dislike button")
+    document.getElementById("dislikeSpan").innerText=dislikeSpan;
+    localStorage.setItem("dislikebtn",dislikeSpan)
+}
+</script>
